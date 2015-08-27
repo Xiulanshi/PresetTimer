@@ -20,7 +20,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="VvT-tu-nrk" kind="push" id="VHb-Uq-cFU"/>
+                                    <segue destination="VvT-tu-nrk" kind="push" identifier="showDetail" id="VHb-Uq-cFU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" id="fkK-cl-LdK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lv0-us-Sqo">
                             <connections>
-                                <segue destination="fOG-C2-E9T" kind="presentation" id="uPe-Kc-QE4"/>
+                                <segue destination="fOG-C2-E9T" kind="presentation" identifier="showAdd" id="uPe-Kc-QE4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -53,12 +53,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-Nq-x8F">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-Nq-x8F">
                                 <rect key="frame" x="0.0" y="64" width="600" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="462329154.29030102">
                                     <!--2015-08-27 00:45:54 +0000-->
                                 </date>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCo-1y-ch7">
+                                <rect key="frame" x="45" y="256" width="51" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-gi-3j1">
                                 <rect key="frame" x="116" y="256" width="368" height="30"/>
                                 <constraints>
@@ -81,8 +87,9 @@
                                     <action selector="addTimerButton:" destination="Sh9-5g-UCC" eventType="touchUpInside" id="GQV-Td-oaR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCo-1y-ch7">
-                                <rect key="frame" x="45" y="256" width="51" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfa-gr-Lxd">
+                                <rect key="frame" x="0.0" y="64" width="600" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -90,11 +97,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Vfa-gr-Lxd" firstAttribute="leading" secondItem="5UO-8v-RPK" secondAttribute="leadingMargin" constant="-16" id="0Dg-zh-6po"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hrd-gi-3j1" secondAttribute="trailing" constant="100" id="0Ub-pf-AoK"/>
                             <constraint firstItem="hrd-gi-3j1" firstAttribute="leading" secondItem="eCo-1y-ch7" secondAttribute="trailing" constant="20" id="1nN-yO-Yit"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vfa-gr-Lxd" secondAttribute="trailing" constant="-16" id="6Pz-Jo-H4Z"/>
+                            <constraint firstItem="Vfa-gr-Lxd" firstAttribute="top" secondItem="NYg-oZ-sHU" secondAttribute="bottom" id="6it-fv-QMG"/>
                             <constraint firstAttribute="centerX" secondItem="hrd-gi-3j1" secondAttribute="centerX" id="DTi-HI-qGd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MUn-Nq-x8F" secondAttribute="trailing" constant="-16" id="KHo-dt-yQ3"/>
                             <constraint firstItem="hrd-gi-3j1" firstAttribute="height" secondItem="eCo-1y-ch7" secondAttribute="height" id="Qdu-eN-iI9"/>
+                            <constraint firstItem="hrd-gi-3j1" firstAttribute="top" secondItem="Vfa-gr-Lxd" secondAttribute="bottom" constant="30" id="VYF-2r-mgY"/>
                             <constraint firstItem="MUn-Nq-x8F" firstAttribute="top" secondItem="NYg-oZ-sHU" secondAttribute="bottom" id="WLY-l8-RNn"/>
                             <constraint firstItem="hrd-gi-3j1" firstAttribute="top" secondItem="MUn-Nq-x8F" secondAttribute="bottom" constant="30" id="gB4-0I-Awr"/>
                             <constraint firstAttribute="centerY" secondItem="odZ-u6-9Xn" secondAttribute="centerY" id="n91-CR-TBr"/>
@@ -104,9 +115,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b8I-ev-boe"/>
-                    <connections>
-                        <outlet property="timerNameLabel" destination="hrd-gi-3j1" id="6jH-nC-sOJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUZ-8h-c8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OEx-BE-f5C">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OEx-BE-f5C">
                                 <rect key="frame" x="0.0" y="64" width="600" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="462332178.947644">
                                     <!--2015-08-27 01:36:18 +0000-->
@@ -148,23 +156,56 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-q8-sMp">
+                                <rect key="frame" x="0.0" y="64" width="600" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OEx-BE-f5C" firstAttribute="leading" secondItem="1KN-rR-9q8" secondAttribute="leadingMargin" constant="-16" id="51S-AQ-qqd"/>
+                            <constraint firstItem="VXi-ZV-Fne" firstAttribute="top" secondItem="vhw-q8-sMp" secondAttribute="bottom" constant="63" id="5i1-cF-uon"/>
+                            <constraint firstItem="VXi-ZV-Fne" firstAttribute="centerX" secondItem="wuS-w5-5GY" secondAttribute="centerX" id="6pj-8s-B1m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vhw-q8-sMp" secondAttribute="trailing" id="8Bq-a7-diB"/>
                             <constraint firstAttribute="centerX" secondItem="VXi-ZV-Fne" secondAttribute="centerX" id="9X6-Ef-0Re"/>
                             <constraint firstItem="wuS-w5-5GY" firstAttribute="top" secondItem="VXi-ZV-Fne" secondAttribute="bottom" constant="30" id="DMB-sW-sCu"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="centerX" secondItem="VXi-ZV-Fne" secondAttribute="centerX" id="G6R-o9-Gb6"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="leading" secondItem="1KN-rR-9q8" secondAttribute="leadingMargin" id="GV6-Qy-IQw"/>
                             <constraint firstAttribute="centerY" secondItem="VXi-ZV-Fne" secondAttribute="centerY" id="Hfe-xb-2aI"/>
                             <constraint firstItem="OEx-BE-f5C" firstAttribute="top" secondItem="BHJ-8t-shG" secondAttribute="bottom" id="Kdm-6O-LmM"/>
                             <constraint firstAttribute="centerX" secondItem="wuS-w5-5GY" secondAttribute="centerX" id="MK5-PE-ZNV"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="leading" secondItem="1KN-rR-9q8" secondAttribute="leadingMargin" constant="-16" id="QpV-9Y-NUa"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="height" secondItem="OEx-BE-f5C" secondAttribute="height" id="Rg0-FF-5dB"/>
                             <constraint firstItem="PIH-qb-uES" firstAttribute="top" secondItem="wuS-w5-5GY" secondAttribute="bottom" constant="32" id="Uls-Bt-MEJ"/>
+                            <constraint firstItem="wuS-w5-5GY" firstAttribute="top" secondItem="VXi-ZV-Fne" secondAttribute="bottom" constant="30" id="Y9e-6P-seO"/>
                             <constraint firstAttribute="centerX" secondItem="PIH-qb-uES" secondAttribute="centerX" id="jIZ-cc-bFe"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="width" secondItem="OEx-BE-f5C" secondAttribute="width" id="k80-nv-Bl2"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="top" secondItem="OEx-BE-f5C" secondAttribute="top" id="nGw-of-FGI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OEx-BE-f5C" secondAttribute="trailing" constant="-16" id="z5X-xh-Qdf"/>
+                            <constraint firstItem="vhw-q8-sMp" firstAttribute="top" secondItem="BHJ-8t-shG" secondAttribute="bottom" id="z7V-gI-hhc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Bq-a7-diB"/>
+                                <exclude reference="G6R-o9-Gb6"/>
+                                <exclude reference="GV6-Qy-IQw"/>
+                                <exclude reference="z7V-gI-hhc"/>
+                                <exclude reference="9X6-Ef-0Re"/>
+                                <exclude reference="Hfe-xb-2aI"/>
+                                <exclude reference="DMB-sW-sCu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="UzY-Ug-HsX"/>
                     <connections>
+                        <outlet property="datePicker" destination="OEx-BE-f5C" id="xMW-5m-RwU"/>
                         <outlet property="nameLabel" destination="VXi-ZV-Fne" id="Odf-Dw-pxT"/>
+                        <outlet property="pauseResumeButton" destination="PIH-qb-uES" id="LJO-f8-qNn"/>
+                        <outlet property="startCancelButton" destination="wuS-w5-5GY" id="BEH-Wu-Xg6"/>
+                        <outlet property="timeLabel" destination="vhw-q8-sMp" id="y4D-Td-Akw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQf-WK-2yi" userLabel="First Responder" sceneMemberID="firstResponder"/>

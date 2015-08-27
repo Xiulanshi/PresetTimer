@@ -13,4 +13,6 @@
 
 @property (nonatomic) NSString *timerName;
 
+@property (nonatomic) NSTimer *timerTime;
+
 @end

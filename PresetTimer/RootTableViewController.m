@@ -67,7 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
     cell.textLabel.text = [self.timers objectAtIndex:indexPath.row];
-   // cell.detailTextLabel.text =
+    cell.detailTextLabel.text = @"60";
     //[cell layoutIfNeeded];
 
     return cell;
@@ -83,14 +83,22 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    
+    if ([segue.identifier isEqual:@"showAdd"]) {
+        //
+    }
+    else{
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
     NSString *currentTimer = [self.timers objectAtIndex:indexPath.row];
     
+    NSString *time = @"60";
+    
     DetailViewController *detailVC = segue.destinationViewController;
     
     detailVC.timerName = currentTimer;
+    detailVC.timerTime = time;
+        
+    }
     
 
 
