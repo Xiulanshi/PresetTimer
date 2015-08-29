@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "Timer.h"
+#import "TimerModel.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -16,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *pauseResumeButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (nonatomic) BOOL isTimerRunning;
 @property (nonatomic) BOOL isPaused;
@@ -36,9 +39,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.nameLabel.text = self.timerName;
+    self.navigationItem.title = @"Detail Timer";
     
-    self.timeLabel.text = @"60";
+    self.nameLabel.text = self.currentTimer.timerName;
+    
+    self.imageView.image = [UIImage imageNamed:self.currentTimer.timerName];
+    
+    self.hours = self.currentTimer.countDownDuration/3600;
+    self.minutes = (self.currentTimer.countDownDuration % 3600)/60;
+    self.seconds = self.currentTimer.countDownDuration - (self.hours * 3600) - (self.minutes * 60);
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%02i:%02i:%02i", self.hours, self.minutes, self.seconds];
     
     self.isTimerRunning = NO;
     self.isPaused = NO;
@@ -51,20 +62,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
-
 
 - (IBAction)startCancelButton:(id)sender {
     
@@ -139,7 +136,6 @@
     }
     
 }
-
 
 
 - (IBAction)pauseResumeButton:(id)sender {

@@ -10,6 +10,14 @@
 
 #import "RootTableViewController.h"
 
+#import "Timer.h"
+
+
 @interface AddTimerViewController : UIViewController
+
+@property (nonatomic, weak) RootTableViewController *timerViewController;
+
+//@property (retain) id passTimer
+
 
 @end

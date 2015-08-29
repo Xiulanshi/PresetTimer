@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootTableViewController.h"
+#import "Timer.h"
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic) NSString *timerName;
-
-@property (nonatomic) NSTimer *timerTime;
+@property (nonatomic) Timer *currentTimer;
 
 @end

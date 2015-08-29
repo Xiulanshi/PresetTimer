@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Timer.h"
+#import "TimerModel.h"
 
 @interface RootTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSMutableArray *timers;
+@property (nonatomic)TimerModel *model;
+
+//@property (strong, nonatomic) NSMutableArray *timers;
 
 @end

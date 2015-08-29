@@ -8,6 +8,8 @@
 
 #import "RootTableViewController.h"
 #import "DetailViewController.h"
+#import "AddTimerViewController.h"
+
 
 @interface RootTableViewController ()
 
@@ -18,20 +20,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.timers = [[NSMutableArray alloc] init];
-    [self.timers addObject:@"ONE"];
-    [self.timers addObject:@"TWO"];
-    [self.timers addObject:@"THREE"];
-    [self.timers addObject:@"FOUR"];
-    [self.timers addObject:@"FIVE"];
-    
-    self.title = @"Timers";
+    self.model = [TimerModel sharedInstance];
+    [self.model initializeModel];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
+    self.navigationItem.title = @"Preset Timers";
     
     
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +46,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         
-        [self.timers removeObjectAtIndex:indexPath.row];
+        [self.model.timers removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -60,17 +63,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.timers count];
+    return [self.model.timers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.timers objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = @"60";
-    //[cell layoutIfNeeded];
-
+    Timer *timer = [self.model.timers objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = timer.timerName;
+    
+    int minutes = timer.countDownDuration/60;
+  
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i Mins", minutes];
+    cell.imageView.image = [UIImage imageNamed:timer.timerName];
+    
+    [cell layoutIfNeeded];
     return cell;
+    
 }
 
 
@@ -84,24 +94,26 @@
     // Pass the selected object to the new view controller.
     
     if ([segue.identifier isEqual:@"showAdd"]) {
-        //
+        // get the destination view controller from the segue
+        // set the timerViewController property on the destination
+        // view controller to `self`
+        UINavigationController *navigationController = segue.destinationViewController;
+        
+        AddTimerViewController *addVC = navigationController.viewControllers[0];
+        
+        addVC.timerViewController = self;
+        
+        
     }
     else{
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    NSString *currentTimer = [self.timers objectAtIndex:indexPath.row];
-    
-    NSString *time = @"60";
-    
+    NSString *currentTimer = [self.model.timers objectAtIndex:indexPath.row];
     DetailViewController *detailVC = segue.destinationViewController;
-    
-    detailVC.timerName = currentTimer;
-    detailVC.timerTime = time;
+        
+    detailVC.currentTimer = currentTimer;
         
     }
     
-
-
 }
 
 @end

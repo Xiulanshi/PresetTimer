@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9E4BBCB1B91EC240001CC08 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4BBCA1B91EC240001CC08 /* Timer.m */; };
+		D9E4BBCE1B91ED4D0001CC08 /* TimerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4BBCD1B91ED4D0001CC08 /* TimerModel.m */; };
 		D9E913C51B8E79350055C601 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E913C41B8E79350055C601 /* main.m */; };
 		D9E913C81B8E79350055C601 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E913C71B8E79350055C601 /* AppDelegate.m */; };
 		D9E913CE1B8E79350055C601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E913CC1B8E79350055C601 /* Main.storyboard */; };
@@ -29,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9E4BBC91B91EC240001CC08 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		D9E4BBCA1B91EC240001CC08 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		D9E4BBCC1B91ED4D0001CC08 /* TimerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerModel.h; sourceTree = "<group>"; };
+		D9E4BBCD1B91ED4D0001CC08 /* TimerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerModel.m; sourceTree = "<group>"; };
 		D9E913BF1B8E79350055C601 /* PresetTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresetTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E913C31B8E79350055C601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9E913C41B8E79350055C601 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +95,10 @@
 			children = (
 				D9E913C61B8E79350055C601 /* AppDelegate.h */,
 				D9E913C71B8E79350055C601 /* AppDelegate.m */,
+				D9E4BBC91B91EC240001CC08 /* Timer.h */,
+				D9E4BBCA1B91EC240001CC08 /* Timer.m */,
+				D9E4BBCC1B91ED4D0001CC08 /* TimerModel.h */,
+				D9E4BBCD1B91ED4D0001CC08 /* TimerModel.m */,
 				D9E913E81B8E7AB80055C601 /* RootTableViewController.h */,
 				D9E913E91B8E7AB80055C601 /* RootTableViewController.m */,
 				D9E914231B8EA0380055C601 /* DetailViewController.h */,
@@ -234,6 +244,8 @@
 				D9E914221B8E99D60055C601 /* AddTimerViewController.m in Sources */,
 				D9E913C81B8E79350055C601 /* AppDelegate.m in Sources */,
 				D9E913C51B8E79350055C601 /* main.m in Sources */,
+				D9E4BBCE1B91ED4D0001CC08 /* TimerModel.m in Sources */,
+				D9E4BBCB1B91EC240001CC08 /* Timer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
