@@ -10,11 +10,9 @@
 
 @interface Timer : NSObject
 
-// property for name (NSString *)
+
 @property (nonatomic) NSString *timerName;
 
-// property for time (NSTimeInterval)
-@property (nonatomic) NSTimeInterval totalTime;
 
 @property (nonatomic) int countDownDuration;
 

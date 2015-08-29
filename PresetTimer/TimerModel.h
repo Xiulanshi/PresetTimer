@@ -16,6 +16,5 @@
 
 - (void)initializeModel;
 
-- (void)setUp;
 
 @end

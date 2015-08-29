@@ -12,7 +12,7 @@
 @interface AddTimerViewController ()
 
 @property (nonatomic) TimerModel *model;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveTimer;
+
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UITextField *timerName;
 @property (weak, nonatomic) IBOutlet UIDatePicker *selectTime;

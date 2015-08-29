@@ -14,6 +14,5 @@
 
 @property (nonatomic)TimerModel *model;
 
-//@property (strong, nonatomic) NSMutableArray *timers;
 
 @end

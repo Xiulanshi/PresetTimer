@@ -60,19 +60,6 @@
     
 }
 
-/*
 
--(void)addRecruit:(Soldier*)recruit{
-    if (self.myRecruits == nil) {
-        self.myRecruits = [[NSMutableArray alloc] init];
-    }
-    
-    [self.myRecruits addObject:recruit];
-}
-
--(Soldier*)recruitAtIndex:(NSInteger)index{
-    Soldier *recruitToReturn = [self.myRecruits objectAtIndex:index];
-    return recruitToReturn;
- */
 
 @end

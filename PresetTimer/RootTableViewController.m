@@ -107,7 +107,7 @@
     }
     else{
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSString *currentTimer = [self.model.timers objectAtIndex:indexPath.row];
+    Timer *currentTimer = [self.model.timers objectAtIndex:indexPath.row];
     DetailViewController *detailVC = segue.destinationViewController;
         
     detailVC.currentTimer = currentTimer;
